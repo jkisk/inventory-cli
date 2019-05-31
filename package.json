@@ -1,0 +1,13 @@
+{
+    "name": "inventory-cli",
+    "version": "1.0.0",
+    "license": "MIT",
+    "bin": {
+        "inventory": "bin/inventory"
+    },
+    "scripts": {},
+    "devDependencies": {},
+    "dependencies": {
+        "minimist": "^1.2.0"
+    }
+}

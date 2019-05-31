@@ -1,0 +1,23 @@
+[
+    {
+      "restock_date": "2018-01-01T04:00:00Z",
+      "item_stocked": "shovel",
+      "item_quantity": 25,
+      "manufacturer": "Knightly Shovels, Inc.",
+      "wholesale_price": 85.6
+    },
+    {
+      "restock_date": "2018-02-01T04:00:00Z",
+      "item_stocked": "shovel",
+      "item_quantity": 10,
+      "manufacturer": "Knightly Shovels, Inc.",
+      "wholesale_price": 73.62
+    },
+    {
+      "restock_date": "2018-03-01T04:00:00Z",
+      "item_stocked": "shovel",
+      "item_quantity": 15,
+      "manufacturer": "Knightly Shovels, Inc.",
+      "wholesale_price": 86.64
+    }
+]
