@@ -1,13 +1,13 @@
 const menus = {
     main: `
-      outside [command] <options>
+      inventory [command] 
   
-      track .............. see if inventory holds out
+      track .............. check if inventory holds out
       version ............ show package version
       help ............... show help menu for a command`,
   
     track: `
-      inventory track -orders.json stock.json (REVISIT!!!)`
+      inventory track <file one> <file two>`
   }
   
   module.exports = (args) => {
