@@ -7,8 +7,9 @@ class Track {
             skis: 0,
             sled: 0,
             snowblower: 0,
-            tires: 0
+            tires: 0,
         }
+        this.success = true
     }
     fillOrder(item, quantity, when) {
         this.inventory[item] = this.inventory[item] - quantity
@@ -24,7 +25,7 @@ class Track {
 
     isEmpty(item, timeEmpty) {
         console.log(`OUT OF STOCK ${item} at: ${timeEmpty}`)
-        ///PROGRAM SHOULD EXIT!!!!
+        this.success = false
     }
 
     onComplete() {
@@ -33,7 +34,10 @@ class Track {
 }
 
 const main = (args) => {
+    
+    // Initialize instance of Track Class.
     const ourTrack = new Track()
+
     //Parse user input JSON files and then combine and sort into one array.
     const restock = JSON.parse(fs.readFileSync(args._[1]))
     const orders = JSON.parse(fs.readFileSync(args._[2]))
@@ -45,15 +49,22 @@ const main = (args) => {
         b.restock_date ? bDate = new Date(b.restock_date) : bDate = new Date(b.order_date)
         return aDate - bDate
     })
-    //Handle each stocking or ordering event, adjusting inventory in the proper order.
+
+    // Handle each stocking or ordering event, adjusting inventory in the proper order.
     for (let el of sorted) {
         let quantity = parseInt(el.item_quantity)
-        el.restock_date ? ourTrack.reStock(el.item_stocked, quantity)
-            : ourTrack.fillOrder(el.item_ordered, quantity, el.order_date)
 
+        el.restock_date ? 
+            ourTrack.reStock(el.item_stocked, quantity)
+            : ourTrack.fillOrder(el.item_ordered, quantity, el.order_date)
+        
+        // If any order cannot be fulfilled, exit early.
+        if(ourTrack.success === false) {
+            return null
+        }
     }
-    //If all events complete without failing to maintain inventory, return success message and remaining inventory.
-    ourTrack.onComplete()
+    // If all events complete, return success message and remaining inventory.
+    return ourTrack.onComplete()
 }
 
 
