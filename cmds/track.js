@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-// Class to track inventory levels.
+// Class to track and adjust inventory levels.
 class Track {
     constructor() {
         this.inventory = {
@@ -12,6 +12,7 @@ class Track {
         }
         this.success = true
     }
+
     fillOrder(item, quantity, when) {
         this.inventory[item] = this.inventory[item] - quantity
 
@@ -35,11 +36,11 @@ class Track {
 }
 
 const trackInventory = (args) => {
-    
+
     // Initialize instance of Track Class.
     const ourTrack = new Track()
 
-    //Parse user input JSON files and then combine and sort into one array.
+    // Parse user input JSON files and then combine and sort into one array.
     const restock = JSON.parse(fs.readFileSync(args._[1]))
     const orders = JSON.parse(fs.readFileSync(args._[2]))
     const combine = restock.concat(orders)
