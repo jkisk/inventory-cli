@@ -1,5 +1,6 @@
 const fs = require('fs')
 
+// Class to track inventory levels.
 class Track {
     constructor() {
         this.inventory = {
@@ -7,7 +8,7 @@ class Track {
             skis: 0,
             sled: 0,
             snowblower: 0,
-            tires: 0,
+            tires: 0
         }
         this.success = true
     }
@@ -33,7 +34,7 @@ class Track {
     }
 }
 
-const main = (args) => {
+const trackInventory = (args) => {
     
     // Initialize instance of Track Class.
     const ourTrack = new Track()
@@ -68,4 +69,4 @@ const main = (args) => {
 }
 
 
-module.exports = main
+module.exports = trackInventory

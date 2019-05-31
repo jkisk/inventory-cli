@@ -1,3 +1,15 @@
--run chmod +x bin/inventory
+Clone repository
 
-Running npm link in the root of your project will symlink your binary file to the system path, making it accessible from anywhere by running inventory.
+Inside your directory:
+
+-run 'npm install --global'
+
+-run 'chmod +x bin/inventory'
+
+-run 'npm link' 
+
+To use tool, pass JSON files with orders and restocks:
+
+inventory track <file1> <file2>
+
+
