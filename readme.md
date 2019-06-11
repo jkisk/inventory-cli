@@ -10,6 +10,6 @@ Inside your directory:
 
 To use tool, pass JSON files with orders and restocks:
 
-inventory track <file1> <file2>
+inventory track file1 file2
 
 
